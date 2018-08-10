@@ -1,0 +1,27 @@
+<h1>{{title}}</h1>
+
+<button [disabled]="!listo" (click)="click()">Click me!</button>
+<hr />
+<input type="text" [(ngModel)]="name">
+Tu nombre es {{name}}
+
+<ul>
+    <ng-container *ngFor="let lugar of lugares">
+            <li *ngIf="lugar.active">{{lugar.name}}</li>
+    </ng-container>
+</ul>
+<a class="btn btn-primary" routerLink="/crear">Crear nuevo negocio</a>
+<ul>
+    <ng-container *ngFor="let lugar of lugares;  let i = index" [ngSwitch]="lugar.cercania">
+            <a>
+                <li contar-clicks [ngStyle]="{color: (lugar.active) ? 'black':'red' }" [ngClass]="{numero_par: (i+1)%2  !== 0}" [resaltar]="lugar.plan">
+                {{lugar.nombre | lowercase}} - Creado: {{lugar.date | date:"mediumTime" | uppercase}} - {{'4545.5434764' | number:'1.2-2'}}
+                <span *ngSwitchCase="1" [ngStyle]="{color:'green'}">Muy cercano</span> 
+                <span *ngSwitchCase="2" [ngStyle]="{color:'gray'}">Cercano</span>
+                <span *ngSwitchCase="3" [ngStyle]="{color:'black'}">Lejano</span>
+                <a routerLink="/detalle/{{lugar.id}}"><button>Ir a detalle </button> </a>
+                
+            </li></a>
+    </ng-container>
+</ul>
+

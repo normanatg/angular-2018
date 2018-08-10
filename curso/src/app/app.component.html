@@ -1,0 +1,23 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+       <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li routerLinkActive="active"><a routerLink="/" >Lugares <span class="sr-only">(current)</span></a></li>
+          <li routerLinkActive="active"><a routerLink="/detalle/2" [queryParams]="{accion:'edit', referer:'google'}">Detalle</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right" *ngIf="!loggenIn">
+          <li><a routerLink="/login">Login</a></li>
+          <li><a routerLink="/registro">Registro</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li><a >{{loggedUser}}</a></li>
+          </ul>
+      </div><!-- /.navbar-collapse -->
+    </div>
+</nav>
+<router-outlet></router-outlet>
+{{state}}
+<a class="btn btn-default" (click)="animar()">Animar!</a>
+<div id="cuadrado" [@contenedorAnimable]="state" (@contenedorAnimable.start)="animacionInicia($event)" (@contenedorAnimable.done)="animacionTermina($event)"></div>

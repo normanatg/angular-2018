@@ -1,0 +1,22 @@
+<h1>Hola mundo</h1>
+{{disabled}}
+<button class="btn btn-default" [disabled]="!disabled" (click)="click()">Click!</button>
+
+<input type="text" [(ngModel)]="name" class="form-control"/>
+Mi nombre es: {{name}}
+
+<ul>
+    <ng-container *ngFor="let lugar of lugares; let i = index" [ngSwitch]="lugar.cercania">
+            <a>
+                    <li [ngStyle]="{color: (lugar.active) ? 'black':'red'}"
+                    [ngClass]="{numero_par: (i+1)%2 !== 0}" >
+                    {{lugar.nombre | uppercase}} {{'4545.5354323' | number:'1.2-2'}} - {{lugar.id | date:'shortTime'}}
+                    <span *ngSwitchCase="1" [ngStyle]="{color:'green'}">Muy cecano</span>
+                    <span *ngSwitchCase="2" [ngStyle]="{color:'gray'}">Cercano</span>
+                    <span *ngSwitchDefault [ngStyle]="{color:'black'}">Lejos</span>
+                </li> 
+            </a>
+            <p [innerHtml]="lugar.des | linkifystr"></p>
+            {{lugar.des | linkifystr}}
+    </ng-container>
+</ul>

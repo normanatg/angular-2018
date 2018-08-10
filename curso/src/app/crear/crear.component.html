@@ -1,0 +1,20 @@
+<div class="container">
+    <label for="nombre">Nombre:</label>
+    <input id="nombre" type="text" class="form-control" [(ngModel)]="lugar.nombre" />
+    <br/>
+    <label for="dist">Distancia:</label>
+    <input id="dist" type="number" class="form-control" [(ngModel)]="lugar.distancia"/>
+    <br/>
+    <label for="cer">Cercania:</label>
+    <input id="cer" type="number" class="form-control" [(ngModel)]="lugar.cercania"/>
+    <br/>
+    <label for="plan">Plan:</label>
+    <input id="plan" type="text" class="form-control" [(ngModel)]="lugar.plan" />
+    <br/>
+    <label for="desc">Descripcion</label>
+    <textarea id="desc" class="form-control" [(ngModel)]="lugar.descripcion"></textarea>
+    <br/>
+    <!--Usamos el click-->
+    <a class="btn btn-primary" (click)="guardarLugar()">Guardar</a>
+    <a class="btn btn-primary" routerLink="/">Cancelar</a>
+</div>
